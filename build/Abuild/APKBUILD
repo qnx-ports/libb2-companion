@@ -3,7 +3,7 @@
 # Maintainer: Felix Xing <fxing@qnx.com>
 pkgname=libb2
 pkgver=0.98.1
-pkgrel=1
+pkgrel=${pkgrel:-0}
 pkgdesc="C library providing BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE2sp"
 url="https://blake2.net/"
 arch="all"
@@ -46,6 +46,7 @@ package() {
     make DESTDIR="$pkgdir" install
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 e760972173bb9ff3562843882abbe9042af09da63f37a5706921381be2d64cc4d333aec65e1e676d5a45ace913417536a1dc188c90b394c2f7b9cae654dbb108  libb2-0.98.1.tar.gz
 "
